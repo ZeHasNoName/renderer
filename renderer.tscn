@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://dyy53avsrhnax"]
+
+[ext_resource type="Script" uid="uid://lhghq5ii0sav" path="res://render_camera_3d.gd" id="1_klowc"]
+[ext_resource type="Script" uid="uid://bhxhwbqfpeuqy" path="res://AnimRenderConfig.gd" id="2_in5ti"]
+[ext_resource type="PackedScene" uid="uid://dppl6r4ehrk2v" path="res://models/puppet.tscn" id="3_in5ti"]
+[ext_resource type="Script" uid="uid://c2k4fxs531vc3" path="res://frame_2d.gd" id="3_wxhd8"]
+
+[sub_resource type="Resource" id="Resource_in5ti"]
+resource_name = "walk"
+script = ExtResource("2_in5ti")
+anim_name = "Idle"
+frames_to_capture = 3
+metadata/_custom_type_script = "uid://bhxhwbqfpeuqy"
+
+[sub_resource type="Environment" id="Environment_ey6ln"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.02
+
+[node name="Renderer" type="Control" unique_id=1243174713]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=982987996]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=746268392]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Center" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=1537275514]
+metadata/_edit_lock_ = true
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/Center" unique_id=1196217575 node_paths=PackedStringArray("model_anim_player", "rotation_center", "capture_viewport", "frame_2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1056471, 1.9535277)
+current = true
+script = ExtResource("1_klowc")
+output_path = "res://out/puppet.png"
+directions = 8
+model_anim_player = NodePath("../../Model/Puppet/UAL1_Standard/AnimationPlayer")
+anims_to_render = Array[ExtResource("2_in5ti")]([SubResource("Resource_in5ti")])
+frame_delay = 0.3
+rotation_center = NodePath("..")
+capture_viewport = NodePath("../..")
+frame_2d = NodePath("../../../Frame2D")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Center" unique_id=1765789768]
+transform = Transform3D(0.86602545, -0.35355338, 0.35355338, 0, 0.7071068, 0.7071068, -0.5, -0.61237246, 0.61237246, 1.0055584, 2.0111165, 1.7416779)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport" unique_id=1960504706]
+environment = SubResource("Environment_ey6ln")
+
+[node name="Model" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=14365542]
+metadata/_edit_lock_ = true
+
+[node name="Puppet" parent="SubViewportContainer/SubViewport/Model" unique_id=906172414 instance=ExtResource("3_in5ti")]
+
+[node name="GeneralSkeleton" parent="SubViewportContainer/SubViewport/Model/Puppet/UAL1_Standard/Armature" parent_id_path=PackedInt32Array(906172414, 835189104, 1882522169) index="0" unique_id=407679712]
+bones/1/position = Vector3(0.0053169443, 0.87717235, -0.08649441)
+bones/1/rotation = Quaternion(-0.04628033, -0.11588846, -0.005405691, 0.9921687)
+bones/3/rotation = Quaternion(0.09260246, 0.000112654714, 0.00025388045, 0.99570316)
+bones/4/rotation = Quaternion(0.092602395, 0.00032065847, 0.00024720546, 0.9957031)
+bones/5/rotation = Quaternion(-0.09260248, -0.00021697924, -0.0002602538, 0.9957031)
+bones/6/rotation = Quaternion(0.07725409, 0.0957206, 0.007964551, 0.99237394)
+bones/7/rotation = Quaternion(0.48748106, 0.52661544, 0.52638143, -0.4560275)
+bones/8/rotation = Quaternion(-0.06222128, 0.8176802, -0.5722163, 0.00980104)
+bones/9/rotation = Quaternion(0.18998532, -0.651041, 0.18306458, 0.7117153)
+bones/10/rotation = Quaternion(0.09913024, 0.70686626, 0.0629003, 0.69753635)
+bones/11/rotation = Quaternion(0.6295969, -4.0978193e-08, -4.61936e-06, 0.77692205)
+bones/12/rotation = Quaternion(0.62334186, 2.9802322e-08, -4.261732e-06, 0.78194946)
+bones/13/rotation = Quaternion(0.62334144, -2.2351742e-07, -4.4703484e-06, 0.78194976)
+bones/15/rotation = Quaternion(0.6288943, -0.0297349, -4.470348e-06, 0.7769219)
+bones/16/rotation = Quaternion(0.6227327, -0.02755458, -4.410744e-06, 0.7819494)
+bones/17/rotation = Quaternion(0.6226684, -0.028961532, -4.4703493e-06, 0.78194976)
+bones/19/rotation = Quaternion(0.6630008, -0.044529784, 0.07369417, 0.7436506)
+bones/20/rotation = Quaternion(0.6203661, -0.06229401, 0.015573084, 0.7816796)
+bones/21/rotation = Quaternion(0.62192154, -0.04205184, -4.4703484e-06, 0.78194964)
+bones/23/rotation = Quaternion(0.6291978, -0.022414071, -4.202128e-06, 0.77692205)
+bones/24/rotation = Quaternion(0.6229472, -0.022176376, -4.321337e-06, 0.78194946)
+bones/25/rotation = Quaternion(0.6228982, -0.023505477, -4.5001498e-06, 0.7819497)
+bones/27/rotation = Quaternion(-0.123819165, 0.7195233, 0.2018354, 0.65285325)
+bones/28/rotation = Quaternion(0.18180694, 0.11012423, 0.060063303, 0.9753006)
+bones/29/rotation = Quaternion(0.5994299, 0.27396563, 0.19463211, 0.7264606)
+bones/30/scale = Vector3(1.0001454, 1.0004877, 1.0005833)
+bones/31/rotation = Quaternion(0.53972095, -0.47448963, -0.47470158, -0.5081529)
+bones/32/rotation = Quaternion(0.089077465, 0.82466066, -0.5584877, -0.009565941)
+bones/33/rotation = Quaternion(0.29214105, 0.54285806, -0.20492761, 0.760239)
+bones/34/rotation = Quaternion(0.12024976, -0.69903094, -0.056890074, 0.702609)
+bones/35/rotation = Quaternion(0.6295971, 3.7252903e-08, 4.172325e-06, 0.7769218)
+bones/36/rotation = Quaternion(0.62334144, 1.825392e-07, 4.470348e-06, 0.7819497)
+bones/37/rotation = Quaternion(0.62334156, 1.00582824e-07, 4.2319293e-06, 0.78194964)
+bones/38/rotation = Quaternion(4.6566133e-09, 1, 4.295285e-08, -5.7654454e-08)
+bones/39/rotation = Quaternion(0.6288947, 0.029734796, 4.351139e-06, 0.77692175)
+bones/40/rotation = Quaternion(0.62273216, 0.027554482, 4.5001507e-06, 0.78194976)
+bones/41/rotation = Quaternion(0.62266874, 0.028961398, 4.3213377e-06, 0.78194946)
+bones/43/rotation = Quaternion(0.6630007, 0.044529956, -0.07369393, 0.7436508)
+bones/44/rotation = Quaternion(0.62036633, 0.06229363, -0.015572906, 0.7816794)
+bones/45/rotation = Quaternion(0.62192184, 0.04205143, 4.4703484e-06, 0.7819494)
+bones/46/rotation = Quaternion(-0.03375008, 0.99943036, 4.924054e-08, -5.6300305e-08)
+bones/47/rotation = Quaternion(0.6291981, 0.022413792, 4.11272e-06, 0.7769218)
+bones/48/rotation = Quaternion(0.62294656, 0.022176204, 4.470349e-06, 0.7819501)
+bones/49/rotation = Quaternion(0.6228987, 0.02350526, 4.1723247e-06, 0.7819493)
+bones/50/rotation = Quaternion(-0.018857837, 0.9998222, -1.5216909e-08, -2.369153e-07)
+bones/51/rotation = Quaternion(-0.12381923, -0.7195234, -0.2018356, 0.6528533)
+bones/52/rotation = Quaternion(0.18180703, -0.11012423, -0.060063303, 0.97530067)
+bones/53/rotation = Quaternion(0.5994302, -0.2739653, -0.19463223, 0.7264605)
+bones/54/scale = Vector3(1.0001454, 1.0004876, 1.0005835)
+bones/55/rotation = Quaternion(-0.00077796273, 0.12214074, 0.98626107, -0.11122178)
+bones/56/rotation = Quaternion(0.016344335, 0.98224515, -0.14901444, 0.11279213)
+bones/57/rotation = Quaternion(-0.09455208, 0.7292354, -0.67767, 0.006254539)
+bones/58/rotation = Quaternion(4.664862e-08, 1, 5.9604645e-08, 2.7766912e-08)
+bones/60/rotation = Quaternion(0.0008066073, -0.110076316, 0.9872104, 0.11531823)
+bones/61/rotation = Quaternion(-0.028729852, 0.92896134, -0.08071508, -0.36012587)
+bones/62/rotation = Quaternion(0.17156829, 0.646951, -0.74297434, -0.0027946231)
+bones/63/rotation = Quaternion(-6.703263e-08, 1, 8.940697e-08, 2.1454163e-09)
+
+[node name="Frame2D" type="Line2D" parent="SubViewportContainer" unique_id=1740321109 node_paths=PackedStringArray("pos_button", "end_button")]
+points = PackedVector2Array(462, 151, 676, 151, 676, 525, 462, 525)
+closed = true
+width = 1.0
+script = ExtResource("3_wxhd8")
+pos_button = NodePath("PosButton")
+end_button = NodePath("EndButton")
+
+[node name="PosButton" type="Button" parent="SubViewportContainer/Frame2D" unique_id=2113984577]
+offset_left = 450.0
+offset_top = 133.0
+offset_right = 468.0
+offset_bottom = 164.0
+text = "S"
+
+[node name="EndButton" type="Button" parent="SubViewportContainer/Frame2D" unique_id=288941057]
+offset_left = 668.0
+offset_top = 506.0
+offset_right = 686.0
+offset_bottom = 537.0
+text = "E"
+
+[node name="Measure256px" type="Line2D" parent="." unique_id=298072149]
+position = Vector2(798, 212)
+points = PackedVector2Array(0, 0, 0, 256)
+width = 2.0
+default_color = Color(0, 1, 0, 1)
+
+[editable path="SubViewportContainer/SubViewport/Model/Puppet"]
+[editable path="SubViewportContainer/SubViewport/Model/Puppet/UAL1_Standard"]

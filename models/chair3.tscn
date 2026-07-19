@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://bisetalr8e2xi"]
+
+[ext_resource type="Texture2D" uid="uid://c2qheriu5mwl1" path="res://tex/SBS - Tiny Texture Pack - 128x128/128x128/Wood/Wood_18-128x128.png" id="1_bngiy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lsl6e"]
+albedo_texture = ExtResource("1_bngiy")
+uv1_triplanar = true
+texture_filter = 0
+
+[node name="Chair" type="CSGCombiner3D" unique_id=1031279778]
+material_override = SubResource("StandardMaterial3D_lsl6e")
+metadata/_edit_lock_ = true
+
+[node name="Leg" type="CSGCylinder3D" parent="." unique_id=1813205576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1)
+radius = 0.2
+
+[node name="Leg2" type="CSGCylinder3D" parent="." unique_id=19580174]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 1)
+radius = 0.2
+
+[node name="Leg3" type="CSGCylinder3D" parent="." unique_id=276005742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1)
+radius = 0.2
+
+[node name="Leg4" type="CSGCylinder3D" parent="." unique_id=122761291]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -1)
+radius = 0.2
+
+[node name="Seat" type="CSGBox3D" parent="." unique_id=1935932976]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1214066, -0.05319214)
+size = Vector3(2.475, 0.335, 2.783)
+
+[node name="Rounding" type="CSGCylinder3D" parent="Seat" unique_id=860336577]
+transform = Transform3D(5.229351, 0, 0, 0, 0.51296, 0, 0, 0, 2.7690077, 0, 0, 0)
+operation = 1
+sides = 64
+
+[node name="Rip" type="CSGCylinder3D" parent="." unique_id=1686914132]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.1048937, -1)
+radius = 0.06
+height = 3.0
+
+[node name="Rip2" type="CSGCylinder3D" parent="." unique_id=657521445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 4.105136, -1)
+radius = 0.06
+height = 3.0
+
+[node name="Rip3" type="CSGCylinder3D" parent="." unique_id=1755035049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 4.105136, -1)
+radius = 0.06
+height = 3.0
+
+[node name="Rip4" type="CSGCylinder3D" parent="." unique_id=1749926713]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 4.105136, -1)
+radius = 0.06
+height = 3.0
+
+[node name="Rip5" type="CSGCylinder3D" parent="." unique_id=909760640]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 4.105136, -1)
+radius = 0.06
+height = 3.0
+
+[node name="Frame" type="CSGPolygon3D" parent="." unique_id=1941611388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2634113, -0.86033684)
+polygon = PackedVector2Array(-0.004362598, 0.21593213, 0.5972009, 0.21593213, 0.86038446, 0.33708048, 1.0734382, 0.5584891, 1.1862316, 0.8049629, 1.2154741, 1.6070471, 1.2029414, 2.8059957, 1.1987638, 3.2446353, 1.0776153, 3.4117362, 0.91051483, 3.5119965, 0.7183485, 3.5245292, -0.00018455088, 3.5245292)
+depth = 0.4
+smooth_faces = true
+
+[node name="Frame" type="CSGPolygon3D" parent="Frame" unique_id=92766447]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.00041127205, -0.39966315)
+polygon = PackedVector2Array(-0.004362598, 0.21593213, 0.5972009, 0.21593213, 0.86038446, 0.33708048, 1.0734382, 0.5584891, 1.1862316, 0.8049629, 1.2154741, 1.6070471, 1.2029414, 2.8059957, 1.1987638, 3.2446353, 1.0776153, 3.4117362, 0.91051483, 3.5119965, 0.7183485, 3.5245292, -0.00018455088, 3.5245292)
+depth = 0.4
+
+[node name="Cyl" type="CSGCylinder3D" parent="Frame" unique_id=1658582170]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.43895483, -0.21094745)
+radius = 0.1
+height = 1.0
+
+[node name="Cyl2" type="CSGCylinder3D" parent="Frame" unique_id=1550192204]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.43895483, -0.21094745)
+radius = 0.1
+height = 1.0
+
+[node name="Cyl3" type="CSGCylinder3D" parent="Frame" unique_id=230153693]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43895483, -0.21094745)
+radius = 0.1
+height = 1.0
+
+[node name="Hollow" type="CSGPolygon3D" parent="Frame" unique_id=1932203073]
+transform = Transform3D(0.8, 0, 0, 0, 0.845, 0, 0, 0, 1.285, 0, 0.17336988, 0)
+operation = 2
+polygon = PackedVector2Array(-0.004362598, 0.21593213, 0.5972009, 0.21593213, 0.86038446, 0.33708048, 1.0734382, 0.5584891, 1.1862316, 0.8049629, 1.2154741, 1.6070471, 1.2029414, 2.8059957, 1.1987638, 3.2446353, 1.0776153, 3.4117362, 0.91051483, 3.5119965, 0.7183485, 3.5245292, -0.00018455088, 3.5245292)
+depth = 0.4
+
+[node name="Frame" type="CSGPolygon3D" parent="Frame/Hollow" unique_id=1180690197]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.00041127205, -0.39966315)
+polygon = PackedVector2Array(-0.004362598, 0.21593213, 0.5972009, 0.21593213, 0.86038446, 0.33708048, 1.0734382, 0.5584891, 1.1862316, 0.8049629, 1.2154741, 1.6070471, 1.2029414, 2.8059957, 1.1987638, 3.2446353, 1.0776153, 3.4117362, 0.91051483, 3.5119965, 0.7183485, 3.5245292, -0.00018455088, 3.5245292)
+depth = 0.4

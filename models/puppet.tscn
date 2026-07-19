@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dppl6r4ehrk2v"]
+
+[ext_resource type="PackedScene" uid="uid://co0fmo0o7s8fg" path="res://model_src/universal_anim/UAL1_Standard.glb" id="1_4ikqi"]
+
+[node name="Puppet" type="Node3D" unique_id=906172414]
+
+[node name="UAL1_Standard" parent="." unique_id=835189104 instance=ExtResource("1_4ikqi")]

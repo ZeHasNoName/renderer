@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bq434g1hwuypu"]
+
+[ext_resource type="PackedScene" uid="uid://cpcewy84djxf5" path="res://model_src/male_casual/male_casual.fbx" id="1_2g0ss"]
+
+[node name="ModularNpc" type="Node3D" unique_id=346868691]
+
+[node name="male_casual" parent="." unique_id=587291683 instance=ExtResource("1_2g0ss")]

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bumoa173fil31"]
+
+[ext_resource type="Script" uid="uid://dbrx6557xfiu" path="res://model_scripts/EffectTransform.gd" id="1_nnq6c"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ey6ln"]
+radial_segments = 8
+rings = 8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ey6ln"]
+top_radius = 0.0
+bottom_radius = 0.1
+height = 0.6
+radial_segments = 8
+rings = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_sdngl"]
+radial_segments = 8
+rings = 8
+
+[node name="Creature" type="Node3D" unique_id=401937293]
+metadata/_edit_lock_ = true
+
+[node name="Head" type="CSGMesh3D" parent="." unique_id=1523273921]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2456946, 0)
+autosmooth = true
+mesh = SubResource("SphereMesh_ey6ln")
+
+[node name="HornRoot" type="Node3D" parent="Head" unique_id=1359134769]
+transform = Transform3D(0.96978104, 0.2205996, 0.104215264, -0.24397747, 0.8768568, 0.41424316, 1.7948754e-10, -0.42715123, 0.9041803, 0.20759088, 0.3079095, -0.10719921)
+
+[node name="Marker3D" type="Marker3D" parent="Head/HornRoot" unique_id=1301104806]
+
+[node name="Horn" type="CSGMesh3D" parent="Head/HornRoot" unique_id=616724983]
+transform = Transform3D(0.99999976, 5.32396e-08, 1.3473328e-08, -1.5054498e-08, 0.99999976, 0, 7.775158e-09, -2.9802322e-08, 0.9999997, 0.005451292, 0.30746412, 0.026649952)
+mesh = SubResource("CylinderMesh_ey6ln")
+
+[node name="EffectTransform" type="Node" parent="Head/HornRoot" unique_id=1271713523 node_paths=PackedStringArray("source")]
+script = ExtResource("1_nnq6c")
+source = NodePath("..")
+rotate_degrees = Vector3(0, 90, 0)
+metadata/_custom_type_script = "uid://dbrx6557xfiu"
+
+[node name="Eye" type="CSGMesh3D" parent="Head" unique_id=503221477]
+transform = Transform3D(0.33207974, -0.11314836, -0.04849449, 0.19986895, 0.18799463, 0.080573, 2.887757e-09, -0.10365737, 0.19906318, 0.15441379, 0.15713286, 0.3349967)
+operation = 2
+mesh = SubResource("SphereMesh_sdngl")
+
+[node name="EffectTransform" type="Node" parent="Head/Eye" unique_id=1913907969 node_paths=PackedStringArray("source")]
+script = ExtResource("1_nnq6c")
+source = NodePath("..")
+metadata/_custom_type_script = "uid://dbrx6557xfiu"
